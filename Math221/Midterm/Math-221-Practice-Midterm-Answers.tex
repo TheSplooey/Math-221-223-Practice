@@ -1,0 +1,409 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\hw}{2} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr} %% for details on how this work, search-engine ``fancyhdr documentation''
+\pagestyle{fancy}
+\usepackage{array}
+\usepackage{marginnote}
+\lhead{MATH 221 Practice Midterm} % course name as top-left
+\chead{Page \thepage \ of X} % homework number in top-centre
+\rhead{Answer Key}
+
+\cfoot{Page \thepage \ of X} % page in middle
+\usepackage{ragged2e}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+%% We also redfine the negation symbol:
+\renewcommand{\neg}{\sim}
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+\usepackage[]{mdframed}
+
+
+% draw a frame around given text
+\newcommand{\framedtext}[1]{%
+\par%
+\noindent\fbox{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{#1}%
+}%
+}
+\begin{document}
+\centering
+ \textbf{MATH 221 Practice Midterm Answers --- November, 2024, Duration: 80 minutes}
+ \\
+\textit{This test has \textbf{5 questions} on \textbf{X pages}, for a total of 55 points. }
+\vspace{2cm}
+\renewcommand{\arraystretch}{2}
+\\
+\begin{tabular}{ | m{7.5cm}| m{7.5cm}| } 
+  \hline
+  First Name: & Last Name: \\
+  \hline
+  Student Number: & Section: \\
+  \hline 
+ \multicolumn{2}{| l |}{Signature:}  \\
+  \hline
+\end{tabular}
+\\
+\vspace{1.5cm}
+\begin{tabular}{ | P{1.7cm} | P{0.4cm}| P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}} 
+  \hline
+ Question: &1 & 2&3&4&5 \\
+ \hline
+ Points: & & & & &    \\
+  \hline
+  Total:  & \multicolumn{5}{| r |}{/55} \\
+  \hline
+\end{tabular}
+\clearpage
+\begin{enumerate}
+    \item[1.]  Give an example or say does not exist for each of the following: \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A matrix $A$ such that $\mathrm{Nul}(A) = \mathrm{Col}(A)$
+        \begin{mdframed}
+            \textbf{Solution:}
+            \begin{align*}
+                \begin{bmatrix}
+                    0 & 1 \\ 0 & 0
+                \end{bmatrix}
+            \end{align*}
+        There are more examples but this is the easiest
+        \end{mdframed}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A subspace of $\mathbb{R}^n$ such that it has only one basis
+        \begin{mdframed}
+            \textbf{Solution:}
+            $\set{\mathbf{0}}$, and this is in fact the only subspace with one basis, the basis being $\varnothing$
+        \end{mdframed}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A linear transformation $T: V \mapsto W$ such that $T(\mathbf{0}) \neq \mathbf{0}'$ where $\mathbf{0} \in V$, $\mathbf{0}' \in W$
+        \begin{mdframed}
+            \textbf{Solution:}
+            Does not exist
+        \end{mdframed}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An onto function mapping the set of $n\times n-$matrices with real entries to $\mathbb{R}$
+        \begin{mdframed}
+            \textbf{Solution:}
+            The determinant (almost anything works here, another answer would be mapping a matrix to its upper left entry)
+        \end{mdframed}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An invertible $2\times2-$matrix with integer entries that has a non-integer determinant 
+        \begin{mdframed}
+            \textbf{Solution:}
+            Does not exist.
+        \end{mdframed}
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[2.]  Determine whether $T$ is one-to-one and/or onto for each of the following: (No need to justify) \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T: \mathbb{R} \mapsto \mathbb{R}^2$ where if $x \neq 0$, $T(x)= \langle\cos\left (\frac{2\pi}{x} \right) ,\sin \left (\frac{2\pi}{x} \right)\rangle$ and $T(0) = 1$
+        \begin{mdframed}
+            \textbf{Solution:}
+            Not one-to-one and not onto
+        \end{mdframed}
+        \vspace{1.9in}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T:\mathbb{R} \mapsto \mathbb{R}$ where $T(x)$ is a polynomial of odd degree that has complex roots.
+        \begin{mdframed}
+            \textbf{Solution:}
+            Not one-to-one and onto
+        \end{mdframed}
+        \vspace{1.9in}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T: M \mapsto M$, $M$ is the set of invertible $n\times n-$matrices, $A,B \in M$, $T(B) = ABA^{-1}$
+        \begin{mdframed}
+            \textbf{Solution:}
+            One-to-one and onto
+        \end{mdframed}
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[3.] Consider the following matrix $A$: \end{enumerate} \begin{align*}
+        \begin{bmatrix}
+        1 & 1 & 0 & 4 \\
+        1 & 2 & k^2 & 2\\
+        2 & 0 & k & 12
+    \end{bmatrix}
+    \end{align*}
+\begin{enumerate}
+\item[]
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Without row reducing the matrix, show that $\mathrm{Nul}(A) \neq \set{\mathbf{0}}$
+        \begin{mdframed}
+            \textbf{Solution:}
+            Observe that this matrix is $3\times 4$ so by rank theorem, the number of columns is equal to the rank + nullity. Notice the rank is at most 3 since the matrix can have at most 3 pivots, so the nullity must be at least 1. Hence, $\mathrm{Nul}(A) \neq \set{\mathbf{0}}$.
+        \end{mdframed}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Find $k\in\mathbb{R}$ such that $A$ is onto, or show that such $k$ does not exist.
+         \begin{mdframed}
+            \textbf{Solution:}
+            Row reducing this matrix gives 
+             $$ \begin{bmatrix}
+        1 & 1 & 0 & 4 \\
+        0 & 1 & k^2 & -2\\
+       0& 0& 2k^2+k & 0
+    \end{bmatrix}$$
+    so we want to guarantee that $2k^2+k \neq 0$ as otherwise the bottom row would be all zeroes. Now, observe that this means $k(2k+1)\neq 0$ so $k \neq 0$ and $k \neq \frac{-1}{2}$ will guarantee that $A$ is onto.
+    \end{mdframed}
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Find $k\in\mathbb{R}$ such that $\mathrm{rank}A$ is as small as possible, and state explicitly what $\mathrm{rank}A$ is
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        From part (b), we see that $A$ can be row reduced into the following  $$ \begin{bmatrix}
+        1 & 1 & 0 & 4 \\
+        0 & 1 & k^2 & -2\\
+       0& 0& 2k^2+k & 0
+    \end{bmatrix}$$
+    So $A$ has at least 2 rows with pivots, meaning that the smallest possible rank is $2$. Also from part (b), we know $k \neq 0$ and $k \neq \frac{-1}{2}$ will give the smallest possible rank for $A$.
+    \end{mdframed}
+\end{enumerate}
+\pagebreak
+
+\pagebreak
+\begin{enumerate}
+    \item[4.]  Consider the following matrix $A:$ \end{enumerate}
+     $$\begin{bmatrix}
+        2 & 1 & 0  \\
+        1 & -1 & -2 \\
+        1 & 0 & 1 
+    \end{bmatrix}$$
+\begin{enumerate}
+\item[]
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute $A^{-1}$
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        $$\begin{bmatrix}
+            \frac{1}{5} &  \frac{1}{5} &  \frac{2}{5} \\
+             \frac{3}{5} &  \frac{-2}{5} &  \frac{-4}{5} \\
+              \frac{-1}{5} &  \frac{-1}{5} &  \frac{3}{5}
+        \end{bmatrix}$$
+    \end{mdframed}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[]\begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Let $\mathbf{v_1}, \mathbf{v_2},\mathbf{v_3}$ denote the column vectors of $A^{-1}$. Rewrite the basis for $\mathrm{Col}(A^{-1})$ as $\set{T(\mathbf{v_1}),T(\mathbf{v_2}),T(\mathbf{v_3}})$ where $T$ is a linear transformation such that $T(\mathbf{e_2})=\mathbf{e_2},T(\mathbf{e_3})=\mathbf{e_3},$ and 
+    \end{enumerate}
+\end{enumerate}
+\begin{align*}
+            T(\mathbf{v_1}) &=\begin{bmatrix}
+                * \\ * \\ 1
+            \end{bmatrix} & T(\mathbf{v_2}) &=\begin{bmatrix}
+                * \\ 2 \\ *
+            \end{bmatrix} & T(\mathbf{v_3}) &=\begin{bmatrix}
+                1 \\ * \\ *
+            \end{bmatrix}
+        \end{align*}
+\begin{enumerate}
+    \item[] \begin{mdframed}
+        \textbf{Solution:}
+        $$T(\mathbf{v_1} - \mathbf{v_2}) = T\left (\begin{bmatrix}
+            \frac{1}{5} \\ \frac{3}{5} \\ \frac{-1}{5}
+        \end{bmatrix} - \begin{bmatrix}
+            \frac{1}{5} \\ \frac{-2}{5} \\ \frac{-1}{5}
+        \end{bmatrix}\right ) = \begin{bmatrix}
+                * \\ * \\ 1
+            \end{bmatrix} - \begin{bmatrix}
+                * \\ 2 \\ *
+            \end{bmatrix} = \begin{bmatrix}
+                0 \\ 1 \\ 0
+            \end{bmatrix}$$
+            $$\implies T(\mathbf{v_1}) =\begin{bmatrix}
+                * \\ 3 \\ 1
+            \end{bmatrix}, T(\mathbf{v_2}) =\begin{bmatrix}
+                * \\ 2 \\ 1
+            \end{bmatrix}$$
+            $$T(2\mathbf{v_2}-\mathbf{v_3}) = T\left(\begin{bmatrix}
+            \frac{2}{5} \\ \frac{-4}{5} \\ \frac{-2}{5}
+        \end{bmatrix} -\begin{bmatrix}
+            \frac{2}{5} \\ \frac{-4}{5} \\ \frac{3}{5}
+        \end{bmatrix}\right ) = \begin{bmatrix}
+                * \\ 4 \\ 2
+            \end{bmatrix} - \begin{bmatrix}
+                1 \\ * \\ *
+            \end{bmatrix} = \begin{bmatrix}
+                0 \\ 0 \\ -1
+            \end{bmatrix}$$
+            $$\implies T(\mathbf{v_2}) = \begin{bmatrix}
+                \frac{1}{2} \\ 2 \\ 1
+            \end{bmatrix}, T(\mathbf{v_3}) = \begin{bmatrix}
+                1 \\ 4 \\ 3
+            \end{bmatrix}$$
+            $$\implies T(\mathbf{v_1}) =\begin{bmatrix}
+                \frac{1}{2} \\ 3 \\ 1
+            \end{bmatrix} $$
+            So the final answer is 
+            $\set{\begin{bmatrix}
+                \frac{1}{2} \\ 3 \\ 1
+            \end{bmatrix},\begin{bmatrix}
+                \frac{1}{2} \\ 2 \\ 1
+            \end{bmatrix},\begin{bmatrix}
+              1 \\ 4  \\ 3
+            \end{bmatrix}}$
+    \end{mdframed}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)] \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in]  Suppose the following are vectors written relative to the bases of $\mathbb{R}^3$ and $\mathrm{Col}(A)$ respectively.
+    \end{enumerate}
+\end{enumerate}
+$$\mathbf{v} = \begin{bmatrix}
+    2 \\ 1 \\ 0
+\end{bmatrix}, [\mathbf{w}]_\mathcal{B} = \begin{bmatrix}
+    1 \\ 0 \\ 2
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[] Does $\set{\mathbf{e_1},\mathbf{v},\mathbf{w}}$ form a linearly independent set? What about $\set{[\mathbf{e_1}]_\mathcal{B}, [\mathbf{v}]_\mathcal{B}, [\mathbf{w}]_\mathcal{B}}$? Justify your answer.
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        It suffices to check that one of these sets are linearly independent/dependent as you can get from one set to another via $A$ or $A^{-1}$, which are invertible linear transformations and hence preserve the number of pivots in the matrix formed with these sets as column vectors (and thus linear independence/dependence of the set). We check  $\set{\mathbf{e_1},\mathbf{v},\mathbf{w}}$ so we convert $[\mathbf{w}]_B$ back into standard coordinates. We know $A^{-1}\mathbf{w}$ will give us $[\mathbf{w}]_\mathcal{B}$ so \begin{align*}
+            A([\mathbf{w}]_\mathcal{B}) &= A\left (\begin{bmatrix}
+    1 \\ 0 \\ 2
+\end{bmatrix} \right ) \\
+&= \begin{bmatrix}
+        2 & 1 & 0  \\
+        1 & -1 & -2 \\
+        1 & 0 & 1 
+    \end{bmatrix}\left (\begin{bmatrix}
+    1 \\ 0 \\ 2
+\end{bmatrix} \right ) \\
+&= \begin{bmatrix}
+    2 \\ -3 \\ 3
+\end{bmatrix} = \mathbf{w}
+\end{align*}
+But then this means the matrix whose column vectors are $\mathbf{e_1},\mathbf{v},\mathbf{w}$ would already be in REF and have 3 pivots, so the matrix is invertible and hence both $\set{\mathbf{e_1},\mathbf{v},\mathbf{w}}$ and $\set{[\mathbf{e_1}]_\mathcal{B}, [\mathbf{v}]_\mathcal{B}, [\mathbf{w}]_\mathcal{B}}$ are linearly independent.
+    \end{mdframed}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+        \item[5.]  Let $D_4$ be the possible matrices obtained by multiplying different powers of $R$ and $S$ together in different orders,
+\end{enumerate}
+ \begin{align*}R &= \begin{bmatrix}
+            0 & -1 \\ 1 & 0
+        \end{bmatrix} = \begin{bmatrix}
+            \cos \left (\frac{\pi}{2} \right ) & -\sin \left (\frac{\pi}{2} \right ) \\ \sin \left (\frac{\pi}{2} \right ) & \cos \left (\frac{\pi}{2} \right )
+        \end{bmatrix} & S &= \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}\end{align*}
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Show that $SR^k = R^{-k}S$
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        $R$ is a rotation matrix so $R^k$ is just rotating counterclockwise by $\frac{\pi}{2}$ $k-$times and similarly for $R^{-k}$, it is just rotating clockwise by $\frac{\pi}{2}$ $k-$times. Now,
+        \begin{align*}
+            SR^kS^{-1} &= \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}\begin{bmatrix}
+            \cos \left (\frac{k\pi}{2} \right ) & -\sin \left (\frac{k\pi}{2} \right ) \\ \sin \left (\frac{k\pi}{2} \right ) & \cos \left (\frac{k\pi}{2} \right )
+        \end{bmatrix}\begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}^{-1} \\
+        &= \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}\begin{bmatrix}
+            \cos \left (\frac{k\pi}{2} \right ) & -\sin \left (\frac{k\pi}{2} \right ) \\ \sin \left (\frac{k\pi}{2} \right ) & \cos \left (\frac{k\pi}{2} \right )
+        \end{bmatrix}\begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}
+        \\
+        &=  \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}\begin{bmatrix}
+            \cos \left (\frac{k\pi}{2} \right ) & \sin \left (\frac{k\pi}{2} \right ) \\ \sin \left (\frac{k\pi}{2} \right ) & -\cos \left (\frac{k\pi}{2} \right )
+        \end{bmatrix} \\
+         &=  \begin{bmatrix}
+            \cos \left (\frac{k\pi}{2} \right ) & \sin \left (\frac{k\pi}{2} \right ) \\ -\sin \left (\frac{k\pi}{2} \right ) & \cos \left (\frac{k\pi}{2} \right )
+        \end{bmatrix} \\
+          &=  \begin{bmatrix}
+            \cos \left (\frac{-k\pi}{2} \right ) & -\sin \left (\frac{-k\pi}{2} \right ) \\ \sin \left (\frac{-k\pi}{2} \right ) & \cos \left (\frac{-k\pi}{2} \right )
+        \end{bmatrix} \\
+        &= R^{-k}
+        \end{align*}
+        so $SR^k S^{-1} = R^{-k}$ and hence $SR^k = R^{-k}S$ as required.
+    \end{mdframed}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+\item[] \begin{enumerate}
+    \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in]Suppose $B \in D_4$ is a matrix representing $T: \mathbb{R}^2 \mapsto V$ where the basis of $V$ is as follows:
+    \end{enumerate}
+   \end{enumerate}
+   $$\set{\begin{bmatrix}
+      * \\ -1
+   \end{bmatrix},\begin{bmatrix}
+      * \\ *
+   \end{bmatrix}}$$
+   \begin{enumerate} 
+   \item[] \begin{enumerate} 
+   \item[] Find all possible $B \in D_4$ (There are more than one different matrices depending on how you order the basis of $V$ and depending on how you combine powers of $S$ and $R$)
+\end{enumerate}
+\begin{mdframed}
+    \textbf{Solution:}
+    We want matrices of the following forms $$\begin{bmatrix}
+        * & * \\ -1 & *
+    \end{bmatrix}, \begin{bmatrix}
+        * & * \\ * & -1
+    \end{bmatrix}$$ I claim that every matrix in $D_4$ is either $R^k$ or $SR^k$ for $0\leq k \leq 3$. Now $R$ is a matrix representing rotation by $\frac{\pi}{2}$ so $R^k$ for $0\leq k \leq 3$ will give distinct matrices in $D_4$. From part (a), we can rewrite every product of powers of $S$ and $R$ in the form $S^iR^j$ and notice $0 \leq i \leq 1$ since $S^2 = I$. This gives $R^k,SR^k$ as the only possible matrices in $D_4$.  Trivially, $S$ is a possible $B$, but $I$ is not a possible $B$. $R$ does not have $1$ in the bottom row so $R$ is not a possible $B$. Notice
+    $$SR = \begin{bmatrix}
+      0  & 1\\-1 &0
+    \end{bmatrix}$$ so $SR$ has -1 and 0 in the bottom row, $SR$ is a possible $B$. $R^2 = -I$ so $-I$ is a possible $B$, and $-S$ does not have -1 in the bottom row, so $-S$ is not a possible $B$. $R^3 = -R$ which has $-1$ in the bottom row, so $-R$ is a possible $B$, and from before we know $SR$ has -1 and 0 in the bottom row, so $-SR$ does not. Hence, the only possible matrices for $B$ are 
+    $$S,SR,-I,-R$$
+\end{mdframed}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Let $n \in \mathbb{N}$. Show that $S \neq R^n$ and hence show that there cannot exist $2\times 2$-matrices $A,B$ that satisfy $SAB = R^k -S(A+I)$, $I-B = S$, $AS-I=R^\ell$ all at the same time by assuming that they can exist and deduce that $S = R^n$ for some $n$ (which is a contradiction). 
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        For showing $S \neq R^n$ for all $n \in \mathbb{N}$, notice $\mathrm{det}(S) = -1$ and $\mathrm{det}(R^k)=1$. The determinants are different so $S$ and $R^k$ must be different. Now assume there exist $2\times 2$-matrices $A,B$ that satisfy $SAB = R^k -S(A+I)$, $I-B = S$, $AS-I=R^\ell$. Observe that $-R^k = R^{-k}$ since $-I$ is rotation by $\pi$ and $-I \in D_4$. Then,
+        \begin{align*}
+            SAB &= R^k -S(A+I) \\
+            SA(B-I+I) &= R^k -S(A+I) \\
+            SA(-S+I) &= R^k -S(A+I) \\
+            -SAS -SA &= R^k -SA+S \\
+            -SAS &= R^k + S \\
+            -SAS-S &= R^k \\
+            -S(AS-I) &= R^k \\
+            -SR^{\ell} &= R^k \\
+            -S &= R^{k-\ell} \\
+            S &= -R^{k-\ell} \\
+            S &= R^{\ell-k}
+        \end{align*}
+        so $S=R^n$, but this contradicts $S \neq R^n$ so there cannot exist such $A,B$ as required.
+    \end{mdframed}
+\end{enumerate}
+\end{document}

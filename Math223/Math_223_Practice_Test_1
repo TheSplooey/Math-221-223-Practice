@@ -1,0 +1,210 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\hw}{2} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr} %% for details on how this work, search-engine ``fancyhdr documentation''
+\pagestyle{fancy}
+\usepackage{array}
+\usepackage{marginnote}
+\lhead{MATH 223 Practice 1} % course name as top-left
+\chead{Page \thepage \ of 30} % homework number in top-centre
+\rhead{Student No: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\cfoot{Page \thepage \ of 30} % page in middle
+\usepackage{ragged2e}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+%% We also redfine the negation symbol:
+\renewcommand{\neg}{\sim}
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+\begin{document}
+\centering
+ \textbf{MATH 223 Practice 1 --- September, 2024, Duration: 2.5 hours}
+ \\
+\textit{This document has \textbf{6 questions} on \textbf{30 pages}, for a total of 80 points. }
+\vspace{2cm}
+\renewcommand{\arraystretch}{2}
+\\
+\begin{tabular}{ | m{7.5cm}| m{7.5cm}| } 
+  \hline
+  First Name: & Last Name: \\
+  \hline
+  Student Number: & Section: \\
+  \hline 
+ \multicolumn{2}{| l |}{Signature:}  \\
+  \hline
+\end{tabular}
+\\
+\vspace{1.5cm}
+\begin{tabular}{ | P{1.7cm} | P{0.4cm}| P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}} 
+  \hline
+ Question: &1 & 2&3&4&5&6\\
+ \hline
+ Points: & & & & & &   \\
+  \hline
+  Total:  & \multicolumn{6}{| r |}{/80} \\
+  \hline
+\end{tabular}
+\clearpage
+\begin{enumerate}
+    \item[1.] \reversemarginpar\marginnote{ \fbox{12 Marks} }[-0.24in] Carefully define each of the following: \begin{enumerate}
+        \item A subspace $U$ of a vector space $V$ over $F$
+        \vspace{1.1in}
+        \item A linearly independent set of vectors $\set{v_1,v_2,\ldots,v_n} \subset V$ (You may assume $V$ is finite dimensional and over a field $F$)
+        \vspace{1.1in}
+        \item A linear transformation $T: U \mapsto V$ where $U,V$ are over the field $F$
+        \vspace{1.1in}
+         \item The null space of a matrix $A$
+         \vspace{1.1in}
+         \item Similar matrices $A \sim B$
+         \vspace{1.1in}
+         \item An inner product $\langle \cdot,\cdot \rangle : V \times V \mapsto F$ where $V$ is a vector space over $F = \mathbb{R}$ or $\mathbb{C}$
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[2. ]\reversemarginpar\marginnote{ \fbox{20 Marks} }[-0.24in] This following section will ask you to prove some basic results about vector spaces. \begin{enumerate}
+        \item Prove that for any finite dimensional vector space $V,W$ with the same dimension $n$ over the same field $F$, there exists a bijective linear transformation $T: V \mapsto W$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{itemize}
+    \item[] \begin{enumerate}
+        \item[(b)]Let $A$ be an $n\times n-$matrix with complex entries. Prove that $1 \leq \text{geo. multi. of} \ \lambda \leq \text{alg. multi. of} \ \lambda$ where $\lambda$ is an eigenvalue of $A$. (Hint: Jordan normal form)
+    \end{enumerate}
+\end{itemize}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{itemize}
+    \item[] \begin{enumerate}
+        \item[(c)] Let $\lambda_1,\lambda_2,\ldots,\lambda_n$ be distinct eigenvalues for eigenvectors $v_1,v_2,\ldots,v_n \in \mathbb{R}^n$ for some $n\times n-$matrix $A$. Prove that $\set{v_1,v_2,\ldots,v_n}$ is linearly independent.
+    \end{enumerate}
+\end{itemize}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{itemize}
+    \item[] \begin{enumerate}
+        \item[(d)] Prove that a matrix $A$ has an eigenvalue $\lambda = 0$ if and only if $\mathrm{det}(A) = 0$.
+    \end{enumerate}
+\end{itemize}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[3.]\reversemarginpar\marginnote{ \fbox{12 Marks} }[-0.24in] 
+    Let $O_2(\mathbb{R})$ denote the set of $n \times n-$matrices that preserve the norm of vectors and angle between vectors, identically, the set of matrices such that $A^T = A^{-1}$. \begin{enumerate}
+        \item Prove that for all $A \in O_2(\mathbb{R})$, $\mathrm{det}(A) = \pm 1$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)] Let $SO_2(\mathbb{R})$ be the set of matrices in $ O_n(\mathbb{R})$ such that they have a determinant of 1. Prove that $SO_2(\mathbb{R})$ is the set of rotation matrices for $\mathbb{R}^2$. (Hint: Consider what any $A \in SO_2(\mathbb{R})$ does to $e_1$ and $e_2$)
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)] Prove that for all $A \in O_2(\mathbb{R}) \backslash SO_2(\mathbb{R})$, one of the eigenvalues of $A$ is $1$ and the other is $-1$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[4.] \reversemarginpar\marginnote{ \fbox{10 Marks} }[-0.24in] Let $GL_n(\mathbb{R})$ denote the set of $n \times n$ invertible matrices. \begin{enumerate}
+        \item Let $\sim$ be a relation on $GL_n(\mathbb{R})$ where $A \sim B$ if and only if $\mathrm{det}(A) = \mathrm{det}(B)$.  
+ Prove that $\sim$ is an equivalence relation.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)] Prove that $O_n(\mathbb{R}) \subseteq GL_n(\mathbb{R})$ and $O_n(\mathbb{R})$ is closed under matrix multiplication. Prove or disprove that for all $A \in GL_n(\mathbb{R})$ and for all $B \in O_n(\mathbb{R})$, $ABA^{-1} \in O_n(\mathbb{R})$.
+    \end{enumerate}
+\end{enumerate}
+    \pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[5.] \reversemarginpar\marginnote{ \fbox{12 Marks} }[-0.24in] Let $\langle A\rangle = \set{B : B = A^k, \mathrm{det}(A) \neq 0, k \in \mathbb{Z}}$ where $A$ is an $n\times n$-matrix and assume $\langle A \rangle $ is closed under matrix multiplication. \begin{enumerate}
+        \item Prove that for all $B,C \in \langle A\rangle, BC = CB$. Prove that if $\langle A \rangle$ is finite, $\langle A \rangle \subseteq O_n(\mathbb{R})$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)] Prove that if $m$ is the smallest positive integer such that $B^m = I$ for all $B \in \langle A \rangle$, then $\langle A \rangle$ has $m$ elements.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)] Prove that if $\langle A \rangle$ is finite with $k$ elements, then every $\langle B \rangle \subseteq \langle A \rangle$ has $d$ elements such that $d \mid k$, and that there could only be one $\langle B \rangle$ for each divisor of $k$. You may use the fact that $\langle A \rangle = \set{I, A, A^2, \ldots, A^{k-1}}$ and that $| \langle A^s \rangle | = \frac{n}{\gcd (n,s)}$ for all $s \neq 0 \in \mathbb{Z}$. (Note $\langle B \rangle$ also has to be closed under multiplication)
+
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[6.] \reversemarginpar\marginnote{ \fbox{14 Marks} }[-0.24in] Let $A$ be a $n \times n$ permutation matrix, so every column of $A$ has one entry that is 1 and every row of $A$ has one entry that is 1, and the matrix is 0 everywhere else, and let $A_n$ be the set of $n \times n$ permutation matrices. \begin{enumerate}
+        \item Prove that if $n \geq 2$, then there exists a permutation matrix $A \neq I \in A_n$ such that $A^k = I$ for some $k \in \mathbb{N}$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)] Let $S_n$ be the set of bijections from $\set{1,2,3,\ldots,n}$ to itself. Construct a bijection $\varphi: S_n \mapsto A_n$ between the set of permutation matrices such that for all $\sigma,\tau \in S_n$, $\varphi(\sigma \circ \tau) = \varphi(\sigma)\varphi(\tau)$.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\textit{This page is for your work and solutions if needed}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)] Prove that if $G$ is a non-empty finite set of $m\times m-$matrices with real entries such that for all $B,C \in G$, $BC^{-1} \in G$, then, there exists $n \in \mathbb{N}$ such that one can find an injection $f:G\mapsto A_n$ where for all $B,C \in G$, $f(BC) = f(B)f(C)$.
+    \end{enumerate}
+\end{enumerate}
+    \pagebreak
+\textit{This page is for your work and solutions if needed}
+\end{document}

@@ -339,12 +339,12 @@ The null space of a matrix $A$ is the set of vectors $v$ such that $Av = 0$, $v$
 \pagebreak
 \begin{enumerate}
     \item[5.] \reversemarginpar\marginnote{ \fbox{12 Marks} }[-0.24in] Let $\langle A\rangle = \set{B : B = A^k, \mathrm{det}(A) \neq 0, k \in \mathbb{Z}}$ where $A$ is an $n\times n$-matrix and assume $\langle A \rangle $ is closed under matrix multiplication. \begin{enumerate}
-        \item Prove that for all $B,C \in \langle A\rangle, BC = CB$. Prove that if $\langle A \rangle$ is finite, $\langle A \rangle \subseteq O_n(\mathbb{R})$.
+        \item Prove that for all $B,C \in \langle A\rangle, BC = CB$. Prove that if $\langle A \rangle$ is finite, $\mathrm{det}(A)=\pm 1$.
     \end{enumerate}
     \begin{mdframed}
         \textbf{Solution:}
         \begin{proof}
-            Let $B,C \in \langle A \rangle$. Then, $B = A^k$ and $C = A^\ell$ for some $k,\ell \in \mathbb{Z}$. It follows that $BC = A^k A^\ell = A^{k+\ell} = A^\ell A^k = CB$ so $BC = CB$ as required. For the second part, notice $A$ is invertible and $\langle A \rangle$ is finite. We prove the contrapositive, so we show that if $\langle A \rangle \nsubseteq O_n(\mathbb{R})$, then $\langle A \rangle$ is infinite. Pick $B \in \langle A \rangle$ such that $B \notin O_n(\mathbb{R})$, so $B$ does not preserve the norm of the vectors and thus $\mathrm{det}(B) \neq \pm 1$. We know from the definition of $\langle A \rangle$ that $\mathrm{det}(B) \neq 0$. It follows that $\mathrm{det}(B) = \mathrm{det}(A^k) = (\mathrm{det}(A))^k$ so $\mathrm{det}(A) = \sqrt[k]{\mathrm{det}(B)} \neq \pm 1$. By definition of the set, we know any possible matrix such that it is a power of $A$ will be in $\langle A \rangle$, and by closure under matrix multiplication, we know for all $m \in \mathbb{N}$, $B^m \in \langle A \rangle$ and $B^m \neq I$ since $\mathrm{det}(B^m) = (\mathrm{det}(B))^m = \left (\sqrt[k]{\mathrm{det}(B)} \right )^m \neq \pm 1 \neq 1$. Since there are infinite natural numbers, it follows that $\langle A \rangle$ has infinite elements as required. This proves the contrapositive and thus the original statement.
+            Let $B,C \in \langle A \rangle$. Then, $B = A^k$ and $C = A^\ell$ for some $k,\ell \in \mathbb{Z}$. It follows that $BC = A^k A^\ell = A^{k+\ell} = A^\ell A^k = CB$ so $BC = CB$ as required. For the second part, notice $A$ is invertible and $\langle A \rangle$ is finite. We prove the contrapositive. Assume $\mathrm{det}(A) \neq \pm 1$. Then, $\mathrm{det}(A^n) = (\mathrm{det}(A))^n \neq 1 $ for all $n \in \mathbb{N}$, so $\langle A\rangle$ is infinite. This proves the contrapositive and thus the original statement.
         \end{proof}
     \end{mdframed}
 \end{enumerate}

@@ -1,0 +1,206 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\hw}{2} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr} %% for details on how this work, search-engine ``fancyhdr documentation''
+\pagestyle{fancy}
+\usepackage{array}
+\usepackage{marginnote}
+\lhead{MATH 221 Practice Midterm} % course name as top-left
+\chead{Page \thepage \ of 11} % homework number in top-centre
+\rhead{Student No: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\cfoot{Page \thepage \ of 11} % page in middle
+\usepackage{ragged2e}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+%% We also redfine the negation symbol:
+\renewcommand{\neg}{\sim}
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+\begin{document}
+\centering
+ \textbf{MATH 221 Practice Midterm --- November, 2024, Duration: 80 minutes}
+ \\
+\textit{This test has \textbf{5 questions} on \textbf{11 pages}, for a total of 55 points. }
+\vspace{2cm}
+\renewcommand{\arraystretch}{2}
+\\
+\begin{tabular}{ | m{7.5cm}| m{7.5cm}| } 
+  \hline
+  First Name: & Last Name: \\
+  \hline
+  Student Number: & Section: \\
+  \hline 
+ \multicolumn{2}{| l |}{Signature:}  \\
+  \hline
+\end{tabular}
+\\
+\vspace{1.5cm}
+\begin{tabular}{ | P{1.7cm} | P{0.4cm}| P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}} 
+  \hline
+ Question: &1 & 2&3&4&5 \\
+ \hline
+ Points: & & & & &   \\
+  \hline
+  Total:  & \multicolumn{5}{| r |}{/55} \\
+  \hline
+\end{tabular}
+\clearpage
+\begin{enumerate}
+    \item[1.]  Give an example or say does not exist for each of the following: \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A matrix $A$ such that $\mathrm{Nul}(A) = \mathrm{Col}(A)$
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A subspace of $\mathbb{R}^n$ such that it has only one basis
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A linear transformation $T: V \mapsto W$ such that $T(\mathbf{0}) \neq \mathbf{0}'$ where $\mathbf{0} \in V$, $\mathbf{0}' \in W$
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An onto function mapping the set of $n\times n-$matrices with real entries to $\mathbb{R}$
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An invertible $2\times2-$matrix with integer entries that has a non-integer determinant 
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[2.]  Determine whether $T$ is one-to-one and/or onto for each of the following: (No need to justify) \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T: \mathbb{R} \mapsto \mathbb{R}^2$ where if $x \neq 0$, $T(x)= \langle\cos\left (\frac{2\pi}{x} \right) ,\sin \left (\frac{2\pi}{x} \right)\rangle$ and $T(0) = 1$
+        \vspace{2.4in}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T:\mathbb{R} \mapsto \mathbb{R}$ where $T(x)$ is a polynomial of odd degree that has complex roots.
+        \vspace{2.4in}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] $T: M \mapsto M$, $M$ is the set of invertible $n\times n-$matrices, $A,B \in M$, $T(B) = ABA^{-1}$
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[3.] Consider the following matrix $A$: \end{enumerate} \begin{align*}
+        \begin{bmatrix}
+        1 & 1 & 0 & 4 \\
+        1 & 2 & k^2 & 2\\
+        2 & 0 & k & 12
+    \end{bmatrix}
+    \end{align*}
+\begin{enumerate}
+\item[]
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Without row reducing the matrix, show that $\mathrm{Nul}(A) \neq \set{\mathbf{0}}$
+        \vspace{3in}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Find $k\in\mathbb{R}$ such that $A$ is onto, or show that such $k$ does not exist.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Find $k\in\mathbb{R}$ such that $\mathrm{rank}A$ is as small as possible, and state explicitly what $\mathrm{rank}A$ is
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\pagebreak
+\begin{enumerate}
+    \item[4.]  Consider the following matrix $A:$ \end{enumerate}
+     $$\begin{bmatrix}
+        2 & 1 & 0  \\
+        1 & -1 & -2 \\
+        1 & 0 & 1 
+    \end{bmatrix}$$
+\begin{enumerate}
+\item[]
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute $A^{-1}$
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[]\begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Let $\mathbf{v_1}, \mathbf{v_2},\mathbf{v_3}$ denote the column vectors of $A^{-1}$. Rewrite the basis for $\mathrm{Col}(A^{-1})$ as $\set{T(\mathbf{v_1}),T(\mathbf{v_2}),T(\mathbf{v_3}})$ where $T$ is a linear transformation such that $T(\mathbf{e_2})=\mathbf{e_2},T(\mathbf{e_3})=\mathbf{e_3},$ and 
+    \end{enumerate}
+\end{enumerate}
+\begin{align*}
+            T(\mathbf{v_1}) &=\begin{bmatrix}
+                * \\ * \\ 1
+            \end{bmatrix} & T(\mathbf{v_2}) &=\begin{bmatrix}
+                * \\ 2 \\ *
+            \end{bmatrix} & T(\mathbf{v_3}) &=\begin{bmatrix}
+                1 \\ * \\ *
+            \end{bmatrix}
+        \end{align*}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)] \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in]  Suppose the following are vectors written relative to the bases of $\mathbb{R}^3$ and $\mathrm{Col}(A)$ respectively.
+    \end{enumerate}
+\end{enumerate}
+$$\mathbf{v} = \begin{bmatrix}
+    2 \\ 1 \\ 0
+\end{bmatrix}, [\mathbf{w}]_\mathcal{B} = \begin{bmatrix}
+    1 \\ 0 \\ 2
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[] Does $\set{\mathbf{e_1},\mathbf{v},\mathbf{w}}$ form a linearly independent set? What about $\set{[\mathbf{e_1}]_\mathcal{B}, [\mathbf{v}]_\mathcal{B}, [\mathbf{w}]_\mathcal{B}}$? Justify your answer.
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+        \item[5.]  Let $D_4$ be the possible matrices obtained by multiplying different powers of $R$ and $S$ together in different orders,
+\end{enumerate}
+ \begin{align*}R &= \begin{bmatrix}
+            0 & -1 \\ 1 & 0
+        \end{bmatrix} = \begin{bmatrix}
+            \cos \left (\frac{\pi}{2} \right ) & -\sin \left (\frac{\pi}{2} \right ) \\ \sin \left (\frac{\pi}{2} \right ) & \cos \left (\frac{\pi}{2} \right )
+        \end{bmatrix} & S &= \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}\end{align*}
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Show that $SR^k = R^{-k}S$
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+\item[] \begin{enumerate}
+    \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Suppose $B \in D_4$ is a matrix representing $T: \mathbb{R}^2 \mapsto V$ where the basis of $V$ is as follows:
+    \end{enumerate}
+   \end{enumerate}
+   $$\set{\begin{bmatrix}
+      * \\ -1
+   \end{bmatrix},\begin{bmatrix}
+      * \\ *
+   \end{bmatrix}}$$
+   \begin{enumerate} 
+   \item[] \begin{enumerate} 
+   \item[] Find all possible $B \in D_4$ (There are more than one different matrices depending on how you order the basis of $V$ and depending on how you combine powers of $S$ and $R$)
+    \vspace{4in}
+\end{enumerate}
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in]  Let $n \in \mathbb{N}$. Show that $S \neq R^n$ and hence show that there cannot exist $2\times 2$-matrices $A,B$ that satisfy $SAB = R^k -S(A+I)$, $I-B = S$, $AS-I=R^\ell$ all at the same time by assuming that they can exist and deduce that $S = R^n$ for some $n$ (which is a contradiction). 
+    \end{enumerate}
+\end{enumerate}
+\end{document}

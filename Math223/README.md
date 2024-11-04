@@ -1,0 +1,1 @@
+Math 223 might vary quite a bit depending on the year, but I doubt the tests will be very proof heavy based on the past exams I've seen. I made the questions pretty tough so don't expect to finish it in time but hopefully they are not too crazy difficult.

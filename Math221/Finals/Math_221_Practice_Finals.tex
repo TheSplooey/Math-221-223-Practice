@@ -1,0 +1,248 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\hw}{2} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr} %% for details on how this work, search-engine ``fancyhdr documentation''
+\pagestyle{fancy}
+\usepackage{array}
+\usepackage{marginnote}
+\lhead{MATH 221 Practice Finals} % course name as top-left
+\chead{Page \thepage \ of 19} % homework number in top-centre
+\rhead{Student No: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\cfoot{Page \thepage \ of 19} % page in middle
+\usepackage{ragged2e}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+%% We also redfine the negation symbol:
+\renewcommand{\neg}{\sim}
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+\begin{document}
+\centering
+ \textbf{MATH 221 Practice Finals --- November, 2024, Duration: 150 minutes}
+ \\
+\textit{This test has \textbf{10 questions} on \textbf{19 pages}, for a total of 80 points. }
+\vspace{2cm}
+\renewcommand{\arraystretch}{2}
+\\
+\begin{tabular}{ | m{7.5cm}| m{7.5cm}| } 
+  \hline
+  First Name: & Last Name: \\
+  \hline
+  Student Number: & Section: \\
+  \hline 
+ \multicolumn{2}{| l |}{Signature:}  \\
+  \hline
+\end{tabular}
+\\
+\vspace{1.5cm}
+\begin{tabular}{ | P{1.7cm} | P{0.4cm}| P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}} 
+  \hline
+ Question: &1 & 2&3&4&5&6&7&8&9&10 \\
+ \hline
+ Points: & & & & & & & & & &  \\
+  \hline
+  Total:  & \multicolumn{10}{| r |}{/80} \\
+  \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\clearpage
+\begin{enumerate}
+    \item[1.] \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Solve the following system of linear equations and express the solution in parametric form
+\end{enumerate}
+$$\begin{cases}
+    2x + 3y &= z - w \\
+    2w + z &= -x \\
+    y+ 3z &= 1
+\end{cases}$$
+\newpage
+\begin{enumerate}
+    \item[2.] \reversemarginpar\marginnote{ \fbox{6 Marks} }[-0.24in] Find all solutions to the system $A\mathbf{x} = \mathbf{b}$ given the following:
+\end{enumerate}
+$$\mathbf{v} = \begin{bmatrix}
+    1 \\ 2 \\ 0
+\end{bmatrix}, \mathbf{u}_1=\begin{bmatrix}
+    1 \\ 0 \\ 1
+\end{bmatrix},\mathbf{u}_2=\begin{bmatrix}
+    0 \\ 2 \\ 1
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] where $\mathbf{b}\neq\mathbf{0}$, $A^2\mathbf{v} =\mathbf{b}, \mathbf{u}_1,\mathbf{u}_2\in \mathrm{Nul}(A)$ and justify how you came to the solution. (You may need to express your solution in terms of $A$ or $A^{-1}$ in combination with the vectors provided)
+\end{enumerate}
+\newpage
+\begin{enumerate}
+     \item[3.] Let $a_1,a_2,a_3 \in \mathbb{R}$ and assume $a_1 \neq 0$. Let $A$ be a matrix defined as follows: 
+ \end{enumerate}   
+    $$A = \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          a_1a_2 & a_2a_3 & a_1a_3 \\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix}$$
+\begin{enumerate}
+     \item[] \begin{enumerate}
+         \item \reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that for any square matrix, if its nullity is zero then it must be onto.
+         \vspace{1.4in}
+         \item \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Find all instances where $A$ has a nullity of 1.
+     \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[4.] State the definition for each of the following. \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $\set{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n}$ is linearly independent for $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n \in \mathbb{R}^n$.
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $B$ is a basis for a vector space $V$
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $T:\mathbb{R}^m\mapsto \mathbb{R}^n$ is a linear transformation
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] The null space of $A$ where $A$ is a matrix
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] The orthogonal complement of $V$ which is a subspace of $\mathbb{R}^n$
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[5.] Let $f$ be a function that maps rational numbers to the set of $2\times2-$matrices with real entries defined as follows:
+\end{enumerate}
+$$f(x) = \begin{bmatrix}
+    \cos(2\pi x) & -\sin(2\pi x) \\ \sin(2\pi x) & \cos(2\pi x)
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Is $f$ onto? No need to justify.
+        \vspace{1in}
+        \item\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Find all $x$ such that $f(x) = I$ and hence conclude that $f$ is not one-to-one.
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Show that given any rational number $x$, there exists $n \in \mathbb{N}$ such that $(f(x))^n = I$. (Hint: $f$ has the property that $f(x+y) = f(x)f(y)$)
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[6.]  Give an example or say does not exist for each of the following: \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An invertible matrix $A$ that cannot be diagonalized into $PDP^{-1}$ where $P,D$ consist of real entries
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A vector in $\mathbb{R}^n$ that is orthogonal to the zero vector
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An onto but not one-to-one linear transformation $T: \mathbb{R}^m \mapsto \mathbb{R}^n$ that maps vectors with only integer entries to vectors with only integer entries
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Diagonalizable matrices $A,B$ such that $A+B$ cannot be diagonalized
+        \vspace{1.4in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Orthogonal matrices that are not one-to-one
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[7.] Let $O_2(\mathbb{R})$ be the set of invertible $2\times2-$matrices with real entries such that $AA^T = I$ (In otherwords, $A^{-1} = A^T$). Furthermore, let $SO_2(\mathbb{R})$ denote the set of rotational matrices.
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that any $A \in O_2(\mathbb{R})$ has determinant $\pm 1$
+        \vspace{1.5in}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that any $R \in SO_2(\mathbb{R})$ is in $O_2(\mathbb{R})$ by verifying that $RR^T = I$
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Show that if $A \in O_2(\mathbb{R})$ and $A \notin SO_2(\mathbb{R})$, then $A$ does not have complex eigenvalues. (Hint: $\mathrm{det}(A) = -1$, try assuming otherwise and deduce a contradiction)
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[8.] Consider the following matrix $A$
+\end{enumerate}
+$$\begin{bmatrix}
+    2 & -3 \\ 1 & -2 
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(a)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute the eigenvalues of $A$.
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Can $A$ be diagonalized? If yes, diagonalize it by expressing it in the form $PDP^{-1}$. If no, explain why.
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Show that every matrix $B$ that is similar to $A$ has the property that $B^2 = I$
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[9.] \begin{enumerate}
+        \item[(a)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Suppose $D,P\neq I$ is an $n\times n$ invertible  matrix such that $P^5 = I$, and $D^2 = PDP^{-1}$. Find the smallest $k \in \mathbb{N}$ such that $D^k = I$.
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Suppose $A$ is an $n\times n$ real matrix, $\lambda$ is a real eigenvalue, and assume $A$ is $3\times 3$. Show that $(\mathrm{Nul}(A-\lambda I))^\perp \neq \mathbb{R}^3$.
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Let $A$ be an $n\times n$ real matrix. Show that dimension of $(\mathrm{Row}(A))^\perp$ must be the same as 
+        the dimension of $\mathrm{Nul}(A^T)$. 
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[10.] Let $Q = \begin{bmatrix}
+        \mathbf{v}_1 & \mathbf{v}_2 & \mathbf{v}_3 
+    \end{bmatrix}$ where $\set{\mathbf{v_1},\mathbf{v_2},\mathbf{v_3}}$ is orthonormal, and let $A$ be a $3\times3-$matrix defined as follows: 
+\end{enumerate}
+ $$A=\begin{bmatrix}
+     2 & 0 & 2 \\ 2 & 2 & 1 \\ 0& 1 & 1
+ \end{bmatrix}$$
+    \begin{enumerate}
+        \item[] \begin{enumerate}
+            \item \reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in]  Show that $QQ^T = I$ (This is equivalent to $Q^T = Q^{-1}$)
+        \end{enumerate}
+    \end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute a matrix $Q$ where $\mathbf{v_1},\mathbf{v_2},\mathbf{v_3}$ are orthonormal vectors obtained (in order) by applying the Gram-Schmidt process on $
+        \mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3$ (in order) where $A = \begin{bmatrix}
+            \mathbf{a_1} & \mathbf{a_2} & \mathbf{a_3}
+        \end{bmatrix}$
+    \end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Let $Q$ be the same matrix as obtained in part (b). Find a matrix $R$ such that $A = QR$.
+    \end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,549 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\hw}{2} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr} %% for details on how this work, search-engine ``fancyhdr documentation''
+\pagestyle{fancy}
+\usepackage{array}
+\usepackage{marginnote}
+\lhead{MATH 221 Practice Finals Answers} % course name as top-left
+\chead{Page \thepage \ of X} % homework number in top-centre
+\rhead{Student No: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\cfoot{Page \thepage \ of X} % page in middle
+\usepackage{ragged2e}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+%% We also redfine the negation symbol:
+\renewcommand{\neg}{\sim}
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newlength\mylenA
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+\usepackage[]{mdframed}
+
+
+% draw a frame around given text
+\newcommand{\framedtext}[1]{%
+\par%
+\noindent\fbox{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{#1}%
+}%
+}
+\begin{document}
+\centering
+ \textbf{MATH 221 Practice Finals Answers --- November, 2024, Duration: 150 minutes}
+ \\
+\textit{This test has \textbf{10 questions} on \textbf{X pages}, for a total of 80 points. }
+\vspace{2cm}
+\renewcommand{\arraystretch}{2}
+\\
+\begin{tabular}{ | m{7.5cm}| m{7.5cm}| } 
+  \hline
+  First Name: & Last Name: \\
+  \hline
+  Student Number: & Section: \\
+  \hline 
+ \multicolumn{2}{| l |}{Signature:}  \\
+  \hline
+\end{tabular}
+\\
+\vspace{1.5cm}
+\begin{tabular}{ | P{1.7cm} | P{0.4cm}| P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}|P{0.4cm}} 
+  \hline
+ Question: &1 & 2&3&4&5&6&7&8&9&10 \\
+ \hline
+ Points: & & & & & & & & & &  \\
+  \hline
+  Total:  & \multicolumn{10}{| r |}{/80} \\
+  \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\clearpage
+\begin{enumerate}
+    \item[1.] \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Solve the following system of linear equations and express the solution in parametric form
+\end{enumerate}
+$$\begin{cases}
+    2x + 3y &= z - w \\
+    2w + z &= -x \\
+    y+ 3z &= 1
+\end{cases}$$
+\begin{enumerate}
+    \item[] \begin{mdframed}
+        \textbf{Solution:}
+        We reorganize the system of equations into the following:
+        $$\begin{cases}
+    w + 2x + 3y - 1z &= 0 \\
+    2w + 1x + 0y + 1z &= 0 \\
+    0w + 0x + 1y+ 3z &= 1
+\end{cases}$$
+Then we organize it into an augmented matrix and row reduce it to get the solutions. The solutions are given by
+$$\begin{bmatrix}
+    w \\ x \\ y \\ z
+\end{bmatrix} = t\begin{bmatrix}
+    -1 \\ \frac{7}{4} \\ \frac{-3}{4} \\ 1
+\end{bmatrix}+\begin{bmatrix}
+    1 \\ -2 \\ 1 \\ 0
+\end{bmatrix}$$
+or equivalently,
+$$\begin{bmatrix}
+    w \\ x \\ y \\ z
+\end{bmatrix} = t\begin{bmatrix}
+    -4 \\ 7 \\ -3 \\ 4
+\end{bmatrix}+\begin{bmatrix}
+    1 \\ -2 \\ 1 \\ 0
+\end{bmatrix}$$
+There are other possible solutions of course, notably, as long as $$\begin{bmatrix}
+    w \\ x \\ y \\ z
+\end{bmatrix}- \mathbf{x}_p = \mathbf{x}_c - \mathbf{x}_p \in \mathrm{Span} \left (\set{\begin{bmatrix}
+    -4 \\ 7 \\ -3 \\ 4
+\end{bmatrix}} \right )$$ (and the $w,x,y,z$ rows match the entries -4,7,-3,4 and the rows for $\mathbf{x}_p - \mathbf{x}_c$), then the solution works.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[2.] \reversemarginpar\marginnote{ \fbox{6 Marks} }[-0.24in] Find all solutions to the system $A\mathbf{x} = \mathbf{b}$ given the following:
+\end{enumerate}
+$$\mathbf{v} = \begin{bmatrix}
+    1 \\ 2 \\ 0
+\end{bmatrix}, \mathbf{u}_1=\begin{bmatrix}
+    1 \\ 0 \\ 1
+\end{bmatrix},\mathbf{u}_2=\begin{bmatrix}
+    0 \\ 2 \\ 1
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] where $\mathbf{b}\neq\mathbf{0}$, $A^2\mathbf{v} =\mathbf{b}, \mathbf{u}_1,\mathbf{u}_2\in \mathrm{Nul}(A)$ and justify how you came to the solution. (You may need to express your solution in terms of $A$ or $A^{-1}$ in combination with the vectors provided)
+    \begin{mdframed}
+        \textbf{Solution:}
+        We know the solutions to $A\mathbf{x} =\mathbf{b}$ are given in the form $\mathbf{x}_c+\mathbf{x}_p$ where $\mathbf{x}_c \in \mathrm{Nul}(A)$ and $\mathbf{x}_p$ is any solution that solves $A\mathbf{x} =\mathbf{b}$. Observe that $\mathrm{Nul}(A)\subseteq \mathbb{R}^3$ and $\mathbf{u}_1,\mathbf{u}_2$ are linearly independent so $\mathrm{Nul}(A)$ has dimension 2 or 3. Now if $\mathrm{Nul}(A)$ is 3-dimensional, then $A$ would be the zero matrix since it would have rank 0 by the rank theorem and thus $A^2\mathbf{v} = \mathbf{0}$, but this contradicts our assumption that $A^2\mathbf{v} = \mathbf{b}$ and $\mathbf{b} \neq \mathbf{0}$. Hence, $\mathrm{Nul}(A)$ has dimension 2 and is spanned by $\mathbf{u}_1,\mathbf{u}_2$. Now, from $A^2\mathbf{v} = \mathbf{b}$ we know $A(A\mathbf{v}) = \mathbf{b}$ so $A\mathbf{v}$ is a possible $\mathbf{x}_p$, so it follows that all possible solutions are going to be of the form $C_1\mathbf{u}_1+C_2\mathbf{u}_2+A\mathbf{v}$ where $C_1,C_2 \in \mathbb{R}$, which is
+        $$C_1\begin{bmatrix}
+    1 \\ 0 \\ 1
+\end{bmatrix}+C_2\begin{bmatrix}
+    0 \\ 2 \\ 1
+\end{bmatrix}+A\left (\begin{bmatrix}
+    1 \\ 2 \\ 0
+\end{bmatrix}\right )$$
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+     \item[3.] Let $a_1,a_2,a_3 \in \mathbb{R}$ and assume $a_1 \neq 0$. Let $A$ be a matrix defined as follows: 
+ \end{enumerate}   
+    $$A = \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          a_1a_2 & a_2a_3 & a_1a_3 \\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix}$$
+\begin{enumerate}
+     \item[] \begin{enumerate}
+         \item \reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that for any square matrix, if its nullity is zero then it must be onto.
+         \end{enumerate}
+         \begin{mdframed}
+             \textbf{Solution:} Let $A$ be square and assume its nullity is zero. Then, by the rank theorem, we have its rank is equal to its number of columns so it is one-to-one. Since $A$ is square, $A$ is also onto.
+         \end{mdframed}
+         \vspace{0.7in}
+         \begin{enumerate}
+         \item[(b)] \reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Find all instances where $A$ has a nullity of 1.
+     \end{enumerate}
+      \begin{mdframed}
+             \textbf{Solution:} This is equivalent to finding all instances where $A$ has an REF that only has one pivot. Row reducing $A$ gives
+             \begin{align*}\begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          a_1a_2 - a_1a_2 & a_2a_3 - a_2a_2 & a_1a_3 - a_2a_3\\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix} &= \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          0 & a_2(a_3 - a_2) & a_1a_3 - a_2a_3\\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix}\end{align*}
+    By assumption, $a_1 \neq 0$. Now we split into cases. \begin{itemize}
+        \item Assume $a_2 = 0$. Then, 
+        \begin{align*}
+            \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          0 & a_2(a_3 - a_2) & a_1a_3 - a_2a_3\\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix} &= \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          0 & 0 & a_1a_3\\
+         0 & 0 & 0
+     \end{bmatrix}
+        \end{align*}
+        And we must have $a_1a_3 \neq 0$, and thus we must have $a_3 \neq 0$.
+     \item Now assume $a_2 \neq 0$. Then, we must have $a_3 = 0$ so that $a_1a_2a_3 = 0$. Then,
+      \begin{align*}
+            \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          0 & a_2(a_3 - a_2) & a_1a_3 - a_2a_3\\
+         0 & 0 & a_1a_2a_3
+     \end{bmatrix} &= \begin{bmatrix}
+         a_1 & a_2 & a_3  \\
+          0 & -{a_2}^2 & 0\\
+         0 & 0 & 0
+     \end{bmatrix}
+        \end{align*}
+        And $ -{a_2}^2 \neq 0$ since we assume $a_2 \neq 0$ so $a_2 \neq 0,a_3 = 0$ does indeed give a matrix $A$ with nullity 1.
+    \end{itemize}
+    Thus, the instances for $\mathrm{nullity}(A)=1$ are when exactly one of $a_2,a_3$ is zero.
+         \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[4.] State the definition for each of the following. \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $\set{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n}$ is linearly independent for $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n \in \mathbb{R}^n$.
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} $c_1\mathbf{v}_1+c_2\mathbf{v}_2+\ldots+c_n\mathbf{v}_n= \mathbf{0}$ implies $c_1=0,c_2=0,\ldots,c_n=0$.
+        \end{mdframed}
+          \vspace{0.6in}
+        \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $B$ is a basis for a vector space $V$
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} $B$ is linearly independent and spans $V$
+        \end{mdframed}
+        \begin{enumerate}
+        \vspace{0.6in}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] $T:\mathbb{R}^m\mapsto \mathbb{R}^n$ is a linear transformation
+        \end{enumerate}
+         \begin{mdframed}
+            \textbf{Solution:} For all $\mathbf{v}_1,\mathbf{v}_2 \in \mathbb{R}^m$ and $c,d \in \mathbb{R}$, $T(c\mathbf{v}_1+d\mathbf{v}_2) = cT(\mathbf{v}_1)+dT(\mathbf{v}_2)$
+        \end{mdframed}
+        \vspace{0.6in}
+        \begin{enumerate}
+        \item[(d)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] The null space of $A$ where $A$ is a matrix
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} The solution set to $A\mathbf{x} = \mathbf{0}$ where $\mathbf{0}$ is in the codomain of the linear transformation that $A$ represents
+        \end{mdframed}
+        \vspace{0.4in}
+        \begin{enumerate}
+        \item[(e)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] The orthogonal complement of $V$ which is a subspace of $\mathbb{R}^n$
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} The subspace spanned by all the vectors such that its dot product with any vector from $V$ is 0
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[5.] Let $f$ be a function that maps rational numbers to the set of $2\times2-$matrices with real entries defined as follows:
+\end{enumerate}
+$$f(x) = \begin{bmatrix}
+    \cos(2\pi x) & -\sin(2\pi x) \\ \sin(2\pi x) & \cos(2\pi x)
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Is $f$ onto? No need to justify.
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} No
+        \end{mdframed}
+        \vspace{0.2in}
+        \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Find all $x$ such that $f(x) = I$ and hence conclude that $f$ is not one-to-one.
+    \end{enumerate}
+    \begin{mdframed}
+            \textbf{Solution:} Observe that $\cos(2\pi x) = 1$ and $\sin(2\pi x) = 0$ if and only if $x \in \mathbb{Z}$, so any integer $x$ will work. There is more than one integer, so there is more than one $x$ such that $f(x) = I$ and thus $f$ is not one-to-one.
+        \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Show that given any rational number $x$, there exists $n \in \mathbb{N}$ such that $(f(x))^n = I$. (Hint: $f$ has the property that $f(x+y) = f(x)f(y)$)
+    \end{enumerate}
+    \begin{mdframed}
+        Let $x \in \mathbb{Q}$, so $x = \frac{p}{q}$ where $p \in \mathbb{Z}$ and $q \in \mathbb{N}$. Then, $(f(x))^q = f(qx) = f(p)$ but $p \in \mathbb{Z}$ and from part (b) we have $f(p) = I$ so the result holds.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[6.]  Give an example or say does not exist for each of the following: \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An invertible matrix $A$ that cannot be diagonalized into $PDP^{-1}$ where $P,D$ consist of real entries
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} Rotation matrix of $\theta \neq \frac{\pi n}{2}$, $n \in \mathbb{Z}$ since $P,D$ consist of complex entries. Many options work, this is just one.
+        \end{mdframed}
+        \vspace{0.3in}
+        \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] A vector in $\mathbb{R}^n$ that is orthogonal to the zero vector
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:} Any $\mathbf{v} \in \mathbb{R}^n$
+        \end{mdframed}
+        \vspace{0.5in}
+        \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] An onto but not one-to-one linear transformation $T: \mathbb{R}^m \mapsto \mathbb{R}^n$ that maps vectors with only integer entries to vectors with only integer entries
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:}
+            $$A = \begin{bmatrix}
+                1 & 0&0 \\ 0 & 1  &0
+            \end{bmatrix}$$
+            Many options work, this is just one.
+        \end{mdframed}
+        \begin{enumerate}
+        \item[(d)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Diagonalizable matrices $A,B$ such that $A+B$ cannot be diagonalized
+        \end{enumerate}
+         \begin{mdframed}
+            \textbf{Solution:}
+         \begin{align*}
+             A &= \begin{bmatrix}
+             2 & 0 \\ 0 & 3
+         \end{bmatrix} & B &= \begin{bmatrix}
+             -1 & 1 \\ 0 & -2
+         \end{bmatrix}
+         \end{align*} Many options work, this is just one.
+        \end{mdframed}
+        \begin{enumerate}
+        \item[(e)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Orthogonal matrices that are not one-to-one
+    \end{enumerate}
+    \begin{mdframed}
+            \textbf{Solution:}
+         Does not exist. The column vectors are orthogonal and so form a linearly independent set, this implies every column has a pivot in REF.
+        \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[7.] Let $O_2(\mathbb{R})$ be the set of invertible $2\times2-$matrices with real entries such that $AA^T = I$ (In otherwords, $A^{-1} = A^T$). Furthermore, let $SO_2(\mathbb{R})$ denote the set of rotational matrices.
+    \begin{enumerate}
+        \item\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that any $A \in O_2(\mathbb{R})$ has determinant $\pm 1$
+        \end{enumerate}
+        \begin{mdframed}
+            \textbf{Solution:}
+            Let $A \in O_2(\mathbb{R})$. Then, $AA^T = I$ so $(\mathrm{det}(A))^2 = \mathrm{det}(A)\mathrm{det}A^T = 1$ so $\mathrm{det}(A) = \pm 1$
+        \end{mdframed}
+        \vspace{0.5in}
+        \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Show that any $R \in SO_2(\mathbb{R})$ is in $O_2(\mathbb{R})$ by verifying that $RR^T = I$
+    \end{enumerate}
+     \begin{mdframed}
+            \textbf{Solution:}
+            \begin{align*}
+                \begin{bmatrix}
+                    \cos x & -\sin x \\ \sin x & \cos x
+                \end{bmatrix} \left (\begin{bmatrix}
+                    \cos x & -\sin x \\ \sin x & \cos x
+                \end{bmatrix}\right )^T &=  \begin{bmatrix}
+                    \cos x & -\sin x \\ \sin x & \cos x
+                \end{bmatrix} \begin{bmatrix}
+                    \cos x & \sin x \\ -\sin x & \cos x
+                \end{bmatrix} \\
+                &=  \begin{bmatrix}
+                    \cos^2 x + \sin^2 x& 0\\ 0x& \cos^2 x + \sin^2 x 
+                \end{bmatrix} \\
+                &= I
+            \end{align*}
+        \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Show that if $A \in O_2(\mathbb{R})$ and $A \notin SO_2(\mathbb{R})$, then $A$ does not have complex eigenvalues. (Hint: $\mathrm{det}(A) = -1$, try assuming otherwise and deduce a contradiction)
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+                 Let $A \in O_2(\mathbb{R}) \backslash SO_2(\mathbb{R})$ so $\mathrm{det}(A) = -1$. Assume for the sake of contradiction that the eigenvalues of $A$ are complex. Then, by the fundamental theorem of algebra, the roots of the characteristic polynomial, i.e. eigenvalues of $A$, are complex conjugates $z,\xoverline{z}$. Notice, $z \xoverline{z} \geq 0$, and we know the product of eigenvalues will yield the determinant, but the determinant is $-1$, a contradiction. Hence, $A$ has no complex eigenvalues.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[8.] Consider the following matrix $A$
+\end{enumerate}
+$$\begin{bmatrix}
+    2 & -3 \\ 1 & -2 
+\end{bmatrix}$$
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(a)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute the eigenvalues of $A$.
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        Compute $\lambda$ such that $\mathrm{det}(A-\lambda I)=0$. \begin{align*}
+            \mathrm{det}(A-\lambda I) &= (2-\lambda)(-2-\lambda) + 3 \\
+            &= \lambda^2 -4 + 3 \\
+            &= \lambda^2 - 1 \\
+            &= (\lambda - 1)(\lambda + 1)
+        \end{align*}
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Can $A$ be diagonalized? If yes, diagonalize it by expressing it in the form $PDP^{-1}$. If no, explain why.
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:}
+        Clearly $A$ can be diagonalized since it has 2 distinct eigenvalues and $A$ is $2\times 2$. We compute $\mathrm{Nul}(A - \lambda I)$. \begin{itemize}
+            \item For $\lambda = 1$, 
+            \begin{align*}
+                \begin{bmatrix}
+    1 & -3 \\ 1 & -3 
+\end{bmatrix} &\rightarrow \begin{bmatrix}
+    1 & -3 \\ 0 & 0
+\end{bmatrix}
+            \end{align*}
+            So the eigenvector for $\lambda = 1$ is $\begin{bmatrix}
+                3 \\ 1
+            \end{bmatrix}$
+        \item For $\lambda = -1$,
+        \begin{align*}
+            \begin{bmatrix}
+    3 & -3 \\ 1 & -1 
+\end{bmatrix} &\rightarrow \begin{bmatrix}
+    1 & -1 \\ 0 & 0 
+\end{bmatrix}
+        \end{align*}
+        So  eigenvector for $\lambda = -1$ is $\begin{bmatrix}
+                1 \\ 1
+            \end{bmatrix}$
+        \end{itemize}
+        Let $D = \begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix}$. Then, $P = \begin{bmatrix}
+            3 & 1 \\ 1 & 1
+        \end{bmatrix}$ and by the formula for inverses of $2\times 2$ invertible real matrices, 
+        \begin{align*}
+            P^{-1} &= \frac{1}{\mathrm{det}P}\begin{bmatrix}
+            1 & -1 \\ -1 & 3
+        \end{bmatrix} \\
+        &= \frac{1}{(3\cdot 1)-(1 \cdot 1)}\begin{bmatrix}
+            1 & -1 \\ -1 & 3
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            \frac{1}{2} & \frac{-1}{2} \\ \frac{-1}{2} & \frac{3}{2}
+        \end{bmatrix}
+        \end{align*}
+        Hence, we have
+        $$A = \begin{bmatrix}
+            3 & 1 \\ 1 & 1
+        \end{bmatrix}\begin{bmatrix}
+            1 & 0 \\ 0 & -1
+        \end{bmatrix} \begin{bmatrix}
+            \frac{1}{2} & \frac{-1}{2} \\ \frac{-1}{2} & \frac{3}{2}
+        \end{bmatrix}$$
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Show that every matrix $B$ that is similar to $A$ has the property that $B^2 = I$
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} Let $B$ be similar to $A$. $A$ is similar to $D$, so $B$ is also similar to $D$. Then, $B^2 = RD^2R^{-1}$ for some invertible $R$ but $D^2 = I$ so $B^2 = RR^{-1} = I$.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[9.] \begin{enumerate}
+        \item[(a)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Suppose $D,P\neq I$ is an $n\times n$ invertible  matrix such that $P^5 = I$, and $D^2 = PDP^{-1}$. Find the smallest $k \in \mathbb{N}$ such that $D^k = I$.
+    \end{enumerate}
+    \begin{mdframed}
+    \textbf{Solution:}
+        Observe that \begin{align*}
+          (P D^2P^{-1})^2 &= P D^2P^{-1} =D^4 \\
+            &= P^2DP^{-2} \\
+         (P^2 D^2P^{-2})^2 &= P^2 D^4P^{-2} =D^8 \\
+            &= P^3DP^{-3} \\
+            (P^3 D^2P^{-3})^2  &= P^2D^8P^{-2} = D^{16} \\
+            &= P^4DP^{-4} \\
+             (P^4 D^2P^{-4})^2  &= P^2D^{16}P^{-2} = D^{32} \\
+            &= P^5DP^{-5} = D 
+        \end{align*} so $D^{31} = I$. $D \neq I$ so $k \neq 1$. Now since $k$ is the smallest natural number such that $D^k=I$, $D^{\ell} = I$ if and only if $k \mid \ell$, but $31$ is prime so the only possible $k$ is so $k=31$
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Suppose $A$ is an $n\times n$ real matrix, $\lambda$ is a real eigenvalue, and assume $A$ is $3\times 3$. Show that $(\mathrm{Nul}(A-\lambda I))^\perp \neq \mathbb{R}^3$.
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} Suppose $A$ is an $n\times n$ real matrix, $\lambda$ be a real eigenvalue. Then, $\mathrm{Nul}(A - \lambda I)\neq \set{\mathbf{0}}$ since $A$ has at least one eigenvector corresponding to $\lambda$. The eigenvector is in $\mathbb{R}^3$ so $\mathrm{Nul}(A - \lambda I)$ is a subspace of $\mathbb{R}^3$. Since $\mathrm{Nul}(A - \lambda I)^\perp + \mathrm{Nul}(A - \lambda I) = \mathbb{R}^3$ but $\mathrm{Nul}(A - \lambda I)$ is non-empty, it follows that $\mathrm{Nul}(A - \lambda I)^\perp$ has dimension lesser than 3 so $\mathrm{Nul}(A - \lambda I)^\perp \neq \mathbb{R}^3$.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{2 Marks} }[-0.24in] Let $A$ be an $n\times n$ real matrix. Show that dimension of $(\mathrm{Row}(A))^\perp$ must be the same as 
+        the dimension of $\mathrm{Nul}(A^T)$. 
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} Suppose $A$ is an $n\times n$ real matrix. We know the dimension of the row space and the column space are the same so $(\mathrm{Row}(A))^\perp$ and $(\mathrm{Col}(A))^\perp$ have the same dimension, but $(\mathrm{Col}(A))^\perp = \mathrm{Nul}(A^T)$ so the result holds.
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[10.] Let $Q = \begin{bmatrix}
+        \mathbf{v}_1 & \mathbf{v}_2 & \mathbf{v}_3 
+    \end{bmatrix}$ where $\set{\mathbf{v_1},\mathbf{v_2},\mathbf{v_3}}$ is orthonormal, and let $A$ be a $3\times3-$matrix defined as follows: 
+\end{enumerate}
+ $$A=\begin{bmatrix}
+     2 & 0 & 2 \\ 2 & 2 & 1 \\ 0& 1 & 1
+ \end{bmatrix}$$
+    \begin{enumerate}
+        \item[] \begin{enumerate}
+            \item \reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in]  Show that $QQ^T = I$ (This is equivalent to $Q^T = Q^{-1}$)
+        \end{enumerate}
+            \begin{mdframed}
+        \textbf{Solution:} We show $Q^TQ = I$ instead since that implies $Q^T = Q^{-1}$ which implies $QQ^T = I$. For that, the $ij-$th entry in $Q^TQ $ is just $\mathbf{v}_i\cdot\mathbf{v}_j$ and since the column vectors are orthonormal, for any $i \neq j$ we get $\mathbf{v}_i\cdot\mathbf{v}_j = 0$ and $\mathbf{v}_i\cdot\mathbf{v}_i = 1$. Thus, $Q^TQ = I$ and $Q^T = Q^{-1}$ so $Q^{-1}Q = I = QQ^{-1} =QQ^T$.
+    \end{mdframed}
+    \end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(b)]\reversemarginpar\marginnote{ \fbox{3 Marks} }[-0.24in] Compute a matrix $Q$ where $\mathbf{v_1},\mathbf{v_2},\mathbf{v_3}$ are orthonormal vectors obtained (in order) by applying the Gram-Schmidt process on $
+        \mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3$ (in order) where $A = \begin{bmatrix}
+            \mathbf{a_1} & \mathbf{a_2} & \mathbf{a_3}
+        \end{bmatrix}$
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} One can either normalize the vectors at each stage of the Gram-Schmidt process, or apply the Gram-Schmidt process first and then normalize them afterwards. Normalization can be done via $\hat{\mathbf{u}} = \frac{\mathbf{u}}{\| \mathbf{u} \|}$ where $\hat{\mathbf{u}}$ is the normalized vector. The solution can be checked online and one possible answer is the following:
+        $$Q = \begin{bmatrix}
+            \frac{\sqrt{2}}{2} &-\frac{\sqrt{3}}{3} & \frac{\sqrt{6}}{6} \\
+            \frac{\sqrt{2}}{2}& \frac{\sqrt{3}}{3} & -\frac{\sqrt{6}}{6} \\
+            0 & \frac{\sqrt{3}}{3} & \frac{\sqrt{6}}{3}
+        \end{bmatrix}$$
+    \end{mdframed}
+\end{enumerate}
+\newpage
+\begin{enumerate}
+    \item[] \begin{enumerate}
+        \item[(c)]\reversemarginpar\marginnote{ \fbox{4 Marks} }[-0.24in] Let $Q$ be the same matrix as obtained in part (b). Find a matrix $R$ such that $A = QR$.
+    \end{enumerate}
+    \begin{mdframed}
+        \textbf{Solution:} From (a) we know $Q^T = Q^{-1}$ so then $Q^{T}A = Q^{-1}A = Q^{-1}QR = R$. Thus,
+        $$R = \begin{bmatrix}
+            \frac{\sqrt{2}}{2} &\frac{\sqrt{2}}{2} & 0\\
+            -\frac{\sqrt{3}}{3} & \frac{\sqrt{3}}{3} & \frac{\sqrt{3}}{3} \\
+            \frac{\sqrt{6}}{6}  & -\frac{\sqrt{6}}{6} & \frac{\sqrt{6}}{3}
+        \end{bmatrix}\begin{bmatrix}
+     2 & 0 & 2 \\ 2 & 2 & 1 \\ 0& 1 & 1
+ \end{bmatrix} = \begin{bmatrix}
+     2\sqrt{2} & \sqrt{2} & \frac{3\sqrt{2}}{2} \\
+     0 & \frac{5\sqrt{3}}{3} & 0 \\
+     0 & \frac{-\sqrt{6}}{6} & \frac{\sqrt{6}}{2}
+ \end{bmatrix}$$
+    \end{mdframed}
+\end{enumerate}
+\end{document}
